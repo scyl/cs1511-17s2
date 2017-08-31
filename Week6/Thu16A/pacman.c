@@ -46,8 +46,32 @@ int main(int argc, char *argv[]) {
 
 // Draws a 3x3 image of pacman
 void drawPacman(pixel pixels[SIZE][SIZE]) {
-
-    // complete this function
+    // .#% 
+    // ..#
+    // .#.
+    
+    int x = 0;
+    int y = 0;
+    while (y < SIZE) {
+        while (x < SIZE) {
+            pixels[y][x].red = 255;
+            pixels[y][x].green = 255;
+            pixels[y][x].blue = 255;
+            
+            x++;
+        }
+        y++;
+        x = 0;
+    }
+    
+    pixels[0][1].blue = 0;
+    pixels[1][2].blue = 0;
+    pixels[2][1].blue = 0;
+    
+    pixels[2][2].blue = 0;
+    pixels[2][2].green = 0;
+    pixels[2][2].red = 0;
+    
 
 }
 

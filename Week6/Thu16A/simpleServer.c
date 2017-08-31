@@ -83,7 +83,7 @@ int main (int argc, char *argv[]) {
 }
 
 void serveText (int socket) {
-    const char *message = "Replace this with a simple message\n";
+    const char *message = "Hello, World!\n";
 
     // echo the http response to the console for debugging purposes
     printf ("%s", message);

@@ -13,13 +13,27 @@ typedef struct _complex {
     double imaginary;
 } complex;
 
+//typedef int card;
+
+struct _complex2 {
+    double real;
+    double imaginary;
+};
+
 double complexAbsolute(complex c);
 
 // DO NOT CHANGE THIS MAIN FUNCTION
 int main (int argc, char *argv[]) {
 
+    //card x = 1;
+
     // getting the complex number
     complex c;
+    struct _complex2 c2;
+    
+    complex *cp = &c;
+    (*cp).real = 3;
+    cp->real = 3;
 
     printf("Enter the real part: ");
     scanf("%lf", &c.real);
@@ -31,7 +45,7 @@ int main (int argc, char *argv[]) {
     double absoluteValue = complexAbsolute(c);
 
     // print the value
-    printf("The absolute value is %.2lf.\n", absoluteValue);
+    printf("The absolute value is %.5lf.\n", absoluteValue);
 
     return EXIT_SUCCESS;
 }
@@ -40,7 +54,9 @@ int main (int argc, char *argv[]) {
 // this function returns the magnitude (absolute value)
 // of a complex number
 double complexAbsolute(complex c) {
-    // PUT YOUR CODE HERE;
+    double realSqu = pow(c.real, 2);
+    double imgSqu = pow(c.imaginary, 2);
+    double result = sqrt(realSqu + imgSqu);
 
-    return 0; // CHANGE THIS TO YOUR RETURN VALUE
+    return result;
 }
