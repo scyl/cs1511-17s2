@@ -13,10 +13,13 @@ typedef struct _complex {
     double imaginary;
 } complex;
 
+//typedef int card;
+
 double complexAbsolute(complex c);
 
 // DO NOT CHANGE THIS MAIN FUNCTION
 int main (int argc, char *argv[]) {
+    //struct _complex x;
 
     // getting the complex number
     complex c;
@@ -40,7 +43,9 @@ int main (int argc, char *argv[]) {
 // this function returns the magnitude (absolute value)
 // of a complex number
 double complexAbsolute(complex c) {
-    // PUT YOUR CODE HERE;
+    double realSqu = pow(c.real, 2);
+    double imgSqu = pow(c.imaginary, 2);
+    double result = sqrt(realSqu + imgSqu);
 
-    return 0; // CHANGE THIS TO YOUR RETURN VALUE
+    return result;
 }
