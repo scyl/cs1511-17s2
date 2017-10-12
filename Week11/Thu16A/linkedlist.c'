@@ -1,0 +1,83 @@
+typedef struct _node *Node;
+typedef struct _list *List;
+
+typedef struct _list {
+    Node head;
+} list;
+
+typedef struct _node {
+    int value;
+    Node next;
+} node;
+
+Node createNode(int value) {
+    Node new = calloc(1, sizeof(node));
+    if (new == NULL) {
+        exit(1);
+    }
+    
+    new->value = value;
+    new->next = NULL;
+    
+    return new;
+}
+
+void printList(List list) {
+    if (list != NULL) {
+        Node cur = list->head;
+        
+        while (cur != NULL) {
+            printf("%d -> ", cur->value);
+            cur = cur->next;
+        }
+    }
+}
+
+void addToEnd(List list, int new) {
+    // 1.  General = end
+    // 2.  First node
+    // 2.5 Empty list
+    
+    if (list != NULL) {
+        Node newNode = createNode(new);
+    
+        if (list->head == NULL) {
+            // 2
+            list->head = newNode;
+        } else {
+            // 1
+            Node cur = list->head;
+            while (cur->next != NULL) {
+                cur = cur->next;
+            }
+            cur->next = newNode;
+        }
+    }
+}
+
+void removeEnd(List) {
+    // 1. Empty
+    // 2. Only one node
+    // 2.5. General
+    
+    if (list != NULL) {
+        if (list->head == NULL) {
+            // 1
+            
+        } else {
+            // 2
+            Node cur = list->head;
+            Node pre = NULL;
+            
+            while (cur->next!= NULL) {
+                pre = cur;
+                cur = cur->next;
+            }
+            
+            pre->next = cur->next;
+            free(cur);
+        }
+    }
+    
+    
+}
