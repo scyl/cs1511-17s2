@@ -75,37 +75,46 @@ int main (int argc, char *argv[]) {
 }
 
 
-
 void zip(List l1, List l2, List result) {
-    // General
-    // One list longer than other
-    
-    nodePointer cur1 = l1->first; 
+    nodePointer cur1 = l1->first;
     nodePointer cur2 = l2->first;
-    nodePointer curResult = NULL;
+    nodePointer curR = NULL;
     
     result->first = cur1;
-    curResult = result->first;
+    curR = result->first;
     
-    while (cur1 != NULL && cur2 != NULL) {
+    while(cur1 != NULL && cur2 != NULL) {
         cur1 = cur1->next;
-        curResult->next = cur2;
+        curR->next = cur2;
+        curR = curR->next;
+        
         cur2 = cur2->next;
-        curResult = curResult->next;
-        curResult->next = cur1;
-        curResult = curResult->next;
-    }
+        curR->next = cur1;
+        curR = curR->next;
+    } 
 }
 
 void zip(List l1, List l2, List result) {
-    // void add(List, int, Node)
-    // Node remove(List, int)
+    // void addToNth(List l, int i, Node new)
+    // Node removeFromFront(List l)
     
-    int i = 1;
+    int i = 0;
     
-    while (lenth(l2) > 0) {
-        add(l1, i, remove(l2, 0));
-        i += 2;
+    while(length(l2) > 0) {
+        addToNth(result, i, removeFromFront(l1));
+        i++;
+        addToNth(result, i, removeFromFront(l2));
+        i++;
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
